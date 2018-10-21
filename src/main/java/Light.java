@@ -19,4 +19,10 @@ public class Light {
         lightState.setOn(false);
         lightPoint.updateState(lightState);
     }
+
+    public void setBrightness(int brightness) {
+        LightState lightState = new LightState();
+        lightState.setBrightness(brightness);
+        lightPoint.updateState(lightState);
+    }
 }

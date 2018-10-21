@@ -35,6 +35,17 @@ public class Main {
         bridge.connect();
         Thread.sleep(1000); // allow the connection to complete. bridge.connect() is async
         Lights lights = new Lights(bridge);
+
+        Light light = lights.getByName("Lightstrip").get();
+        light.turnOn();
+        light.setBrightness(0);
+        for (int i = 0; i < 100; i++) {
+            light.setBrightness(i);
+            Thread.sleep(100);
+        }
+
+        light.turnOff();
+
         System.out.println("All lights: " + lights.getAllNames());
         bridge.disconnect();
     }
